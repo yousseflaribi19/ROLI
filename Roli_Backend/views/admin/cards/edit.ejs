@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Modifier Carte - ROLI Admin</title>
+</head>
+<body>
+  <h1>Modifier la Carte</h1>
+  <form method="post" action="/admin/cards/edit/<%= card._id %>" enctype="multipart/form-data">
+    <label>Titre :</label><br/>
+    <input type="text" name="title" value="<%= card.title %>" required /><br/>
+
+    <label>Image actuelle :</label><br/>
+    <img src="<%= card.imageUrl %>" alt="Image carte" width="100" /><br/>
+    <label>Changer image :</label><br/>
+    <input type="file" name="image" accept="image/*" /><br/>
+
+    <label>Rareté (ID) :</label><br/>
+    <input type="text" name="rarityId" value="<%= card.rarityId %>" required /><br/>
+
+    <label>Catégorie (ID) :</label><br/>
+    <input type="text" name="categoryId" value="<%= card.categoryId %>" required /><br/>
+
+    <label>Metadata (JSON) :</label><br/>
+    <textarea name="metadata" rows="5"><%= JSON.stringify(card.metadata || {}) %></textarea><br/>
+
+    <label>Exclusivité Événement :</label>
+    <input type="checkbox" name="isEventExclusive" <%= card.isEventExclusive ? 'checked' : '' %> /><br/><br/>
+
+    <button type="submit">Mettre à jour</button>
+  </form>
+  <a href="/admin/cards">Retour liste</a>
+</body>
+</html>

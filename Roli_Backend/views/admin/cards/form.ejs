@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Nouvelle Carte - ROLI Admin</title>
+</head>
+<body>
+  <h1>Ajouter une Nouvelle Carte</h1>
+  <form method="post" action="/admin/cards/new" enctype="multipart/form-data">
+    <label>Titre :</label><br/>
+    <input type="text" name="title" required /><br/>
+
+    <label>Image :</label><br/>
+    <input type="file" name="image" accept="image/*" required /><br/>
+
+    <label>Rareté (ID) :</label><br/>
+    <input type="text" name="rarityId" required /><br/>
+
+    <label>Catégorie (ID) :</label><br/>
+    <input type="text" name="categoryId" required /><br/>
+
+    <label>Metadata (JSON) :</label><br/>
+    <textarea name="metadata" rows="5">{}</textarea><br/>
+
+    <label>Exclusivité Événement :</label>
+    <input type="checkbox" name="isEventExclusive" /><br/><br/>
+
+    <button type="submit">Créer</button>
+  </form>
+  <a href="/admin/cards">Retour liste</a>
+</body>
+</html>

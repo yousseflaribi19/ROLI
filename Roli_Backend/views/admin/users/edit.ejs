@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Modifier Utilisateur - ROLI Admin</title>
+</head>
+<body>
+<h1>Modifier Utilisateur</h1>
+<form method="post" action="/admin/users/edit/<%= user._id %>">
+  <label>Nom d'utilisateur :</label><br/>
+  <input type="text" name="username" value="<%= user.username %>" required /><br/>
+
+  <label>Email :</label><br/>
+  <input type="email" name="email" value="<%= user.email %>" required /><br/>
+
+  <label>Avatar URL :</label><br/>
+  <input type="text" name="avatarUrl" value="<%= user.avatarUrl || '' %>" /><br/>
+
+  <label>Rôle :</label><br/>
+  <select name="role" required>
+    <option value="user" <%= user.role === 'user' ? 'selected' : '' %>>Utilisateur</option>
+    <option value="admin" <%= user.role === 'admin' ? 'selected' : '' %>>Administrateur</option>
+  </select><br/><br/>
+
+  <button type="submit">Mettre à jour</button>
+</form>
+<a href="/admin/users">Retour liste</a>
+</body>
+</html>

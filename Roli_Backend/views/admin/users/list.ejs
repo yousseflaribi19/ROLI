@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gestion des Utilisateurs - ROLI Admin</title>
+</head>
+<body>
+<h1>Liste des Utilisateurs</h1>
+<table border="1" cellpadding="5" cellspacing="0">
+  <thead>
+    <tr>
+      <th>Username</th>
+      <th>Email</th>
+      <th>Rôle</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% users.forEach(user => { %>
+    <tr>
+      <td><%= user.username %></td>
+      <td><%= user.email %></td>
+      <td><%= user.role %></td>
+      <td>
+        <a href="/admin/users/edit/<%= user._id %>">Modifier</a> |
+        <% if (!user.banned) { %>
+          <form method="post" action="/admin/users/ban/<%= user._id %>" style="display:inline;" onsubmit="return confirm('Voulez-vous bannir cet utilisateur ?');">
+            <button type="submit">Bannir</button>
+          </form>
+        <% } else { %>
+          <form method="post" action="/admin/users/unban/<%= user._id %>" style="display:inline;" onsubmit="return confirm('Voulez-vous débannir cet utilisateur ?');">
+            <button type="submit">Débannir</button>
+          </form>
+        <% } %>
+      </td>
+    </tr>
+    <% }); %>
+  </tbody>
+</table>
+</body>
+</html>

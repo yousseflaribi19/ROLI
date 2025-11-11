@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gestion des Cartes - ROLI Admin</title>
+</head>
+<body>
+  <h1>Liste des Cartes</h1>
+  <a href="/admin/cards/new">Ajouter une nouvelle carte</a>
+  <table border="1" cellpadding="5" cellspacing="0">
+    <thead>
+      <tr>
+        <th>Titre</th>
+        <th>Image</th>
+        <th>Rareté</th>
+        <th>Catégorie</th>
+        <th>Exclusivité Événement</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% cards.forEach(card => { %>
+        <tr>
+          <td><%= card.title %></td>
+          <td><img src="<%= card.imageUrl %>" alt="Carte" width="50" /></td>
+          <td><%= card.rarityId ? card.rarityId.name : 'N/A' %></td>
+          <td><%= card.categoryId ? card.categoryId.name : 'N/A' %></td>
+          <td><%= card.isEventExclusive ? 'Oui' : 'Non' %></td>
+          <td>
+            <a href="/admin/cards/edit/<%= card._id %>">Modifier</a> |
+            <form method="post" action="/admin/cards/delete/<%= card._id %>" style="display:inline;" onsubmit="return confirm('Supprimer cette carte ?');">
+              <button type="submit">Supprimer</button>
+            </form>
+          </td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+</body>
+</html>
