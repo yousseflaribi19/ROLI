@@ -1,0 +1,33 @@
+# Node modules
+node_modules/
+
+# Build output
+dist/
+*.log
+logs/
+
+# Environment variables
+.env
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# IDE/editor files
+.vscode/
+*.swp
+
+# Dependency lock files 
+package-lock.json
+
+# Coverage reports
+coverage/
+
+# Optional: compiled views or temp files
+views/*.compiled.*
+*.tmp
+*.bak
+
+# Ignore uploads 
+uploads/
+public/uploads/
