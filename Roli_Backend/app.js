@@ -9,6 +9,7 @@ const authRoutes = require('./routes/authRoutes');
 const cardRoutes = require('./routes/cardRoutes');
 const userRoutes = require('./routes/userRoutes');
 const shopRoutes = require('./routes/shopRoutes');
+const rollRoutes = require('./routes/rollRoutes');
 
 
 const bodyParser = require('body-parser');
@@ -27,6 +28,7 @@ app.use(express.urlencoded({ extended: true }));
 // Routes publiques
 app.use('/api/auth', authRoutes);
 app.use('/api/shop', shopRoutes);
+app.use('/api/rolls', rollRoutes);
 
 // Routes  backoffices
 app.use('/admin/cards', cardRoutes);
