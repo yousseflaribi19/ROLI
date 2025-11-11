@@ -11,6 +11,7 @@ const userRoutes = require('./routes/userRoutes');
 const shopRoutes = require('./routes/shopRoutes');
 const rollRoutes = require('./routes/rollRoutes');
 const questRoutes = require('./routes/questRoutes');
+const leaderboardRoutes = require('./routes/leaderboardRoutes');
 
 
 const bodyParser = require('body-parser');
@@ -31,6 +32,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/shop', shopRoutes);
 app.use('/api/rolls', rollRoutes);
 app.use('/api/quests', questRoutes);
+app.use('/api/leaderboard', leaderboardRoutes);
 
 // Routes  backoffices
 app.use('/admin/cards', cardRoutes);

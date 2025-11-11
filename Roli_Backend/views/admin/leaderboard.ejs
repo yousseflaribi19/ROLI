@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Leaderboard - ROLI Admin</title>
+</head>
+<body>
+  <h1>Top joueurs</h1>
+  <table border="1" cellpadding="5">
+    <thead>
+      <tr>
+        <th>Utilisateur</th>
+        <th>Pips</th>
+        <th>Rolls</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% users.forEach(function(user) { %>
+        <tr>
+          <td><%= user.username %></td>
+          <td><%= user.pips %></td>
+          <td><%= user.rolls.current %></td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</body>
+</html>
