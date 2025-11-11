@@ -10,6 +10,7 @@ const cardRoutes = require('./routes/cardRoutes');
 const userRoutes = require('./routes/userRoutes');
 const shopRoutes = require('./routes/shopRoutes');
 const rollRoutes = require('./routes/rollRoutes');
+const questRoutes = require('./routes/questRoutes');
 
 
 const bodyParser = require('body-parser');
@@ -29,6 +30,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/api/auth', authRoutes);
 app.use('/api/shop', shopRoutes);
 app.use('/api/rolls', rollRoutes);
+app.use('/api/quests', questRoutes);
 
 // Routes  backoffices
 app.use('/admin/cards', cardRoutes);
